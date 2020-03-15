@@ -10,38 +10,40 @@ let oldClassDot = dots[currentSlide].className;
 dots[currentSlide].className = oldClassDot + " slider__dot_active";
 console.log(dots);
 
-arrowNext[0].onclick = function() {
+function clearSlide() {
     sliders[currentSlide].className = oldClass;
     dots[currentSlide].className = oldClassDot;
+}
+
+function showSlide() {
+    sliders[currentSlide].className = oldClass + " slider__item_active";
+    dots[currentSlide].className = oldClassDot + " slider__dot_active";
+}
+
+arrowNext[0].onclick = function() {
+    clearSlide();
+
     currentSlide++;
     if (currentSlide >= sliders.length) {
         currentSlide = 0;
     }
-    sliders[currentSlide].className = oldClass + " slider__item_active";
-    dots[currentSlide].className = oldClassDot + " slider__dot_active";
+    showSlide()
 }
 
 arrowPrev[0].onclick = function() {
-    sliders[currentSlide].className = oldClass;
-    dots[currentSlide].className = oldClassDot;
+    clearSlide();
+
     currentSlide--;
     if (currentSlide < 0) {
         currentSlide = sliders.length - 1;
     }
-    sliders[currentSlide].className = oldClass + " slider__item_active";
-    dots[currentSlide].className = oldClassDot + " slider__dot_active";
+    showSlide();
 }
 
 for (let i = 0; i < dots.length; i++) {
     dots[i].onclick = function() {
-        if (document.querySelector(".slider__dot_active")) {
-            document.querySelector(".slider__dot_active").className = oldClassDot;
-        }
-
-        dots[i].className = oldClassDot + " slider__dot_active";
-        sliders[currentSlide].className = oldClass;
+        clearSlide();
         currentSlide = i;
-        sliders[currentSlide].className = oldClass + " slider__item_active";
-
+        showSlide();
     }
 }
