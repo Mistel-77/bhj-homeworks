@@ -32,9 +32,9 @@ function sendMessage(event) {
             </div>
         </div>
         `;
-    }
+    };
 
-}
+};
 
 widget.addEventListener('click', openWidget);
 chatInput.addEventListener('keydown', sendMessage);
