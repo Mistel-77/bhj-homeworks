@@ -19,13 +19,10 @@ for (let i = 0; i < tooltips.length; i++) {
         }
         
 
-        let tooltip = document.createElement('div');
-        console.log(tooltip);
-        tooltip.innerText = event.target.title;
-        tooltip.className = 'tooltip';
-        tooltip.style.display = 'block';
-        //event.target.parentElement.insertBefore(tooltip, event.target.nextElementSibling);
-        event.target.insertAdjacentHTML('afterEnd', tooltip);
+        let html = `<div class="tooltip" style="display: block;">
+        ${event.target.title}
+      </div>`;
+        event.target.insertAdjacentHTML('afterEnd', html);
     });
     
 };
