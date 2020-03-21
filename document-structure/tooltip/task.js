@@ -19,7 +19,7 @@ for (let i = 0; i < tooltips.length; i++) {
         }
         
 
-        let html = `<div class="tooltip" style="display: block;">
+        let html = `<div class="tooltip" style="display: block; left: ${event.target.getBoundingClientRect().left}px; top: ${event.target.getBoundingClientRect().top + 19}px;">
         ${event.target.title}
       </div>`;
         event.target.insertAdjacentHTML('afterEnd', html);

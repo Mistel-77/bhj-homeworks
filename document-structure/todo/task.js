@@ -3,7 +3,6 @@ const input = document.getElementById('task__input');
 const tasks_list = document.getElementById('tasks__list');
 
 function toDo() {
-    console.log('4');
     let html = `<div class="task">
          <div class="task__title">
               ${input.value}
@@ -19,14 +18,13 @@ function toDo() {
 
 input.addEventListener('keydown', (event) => {
     if(event.key == "Enter" && input.value != '') {
-        event.preventDefault();
         toDo();
     }  
 });
 
 button.addEventListener('click', (event) => {
+    event.preventDefault();
     if(input.value != '') {
-        event.preventDefault();
         toDo();
     }  
 });
