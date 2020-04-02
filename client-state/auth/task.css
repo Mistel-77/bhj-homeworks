@@ -1,6 +1,9 @@
 body {
   font-family: 'Arial';
 }
+.row {
+  margin-top: 10px;
+}
 
 .signin {
   display: none;
